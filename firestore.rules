@@ -1,0 +1,63 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions for validation
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128;
+    }
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Attendance sessions
+    match /attendance_sessions/{sessionId} {
+      allow read: if isValidId(sessionId);
+      allow create, update: if isValidId(sessionId)
+        && request.resource.data.sessionId is string
+        && request.resource.data.departmentId is string
+        && request.resource.data.year in ['I', 'II', 'III', 'IV']
+        && request.resource.data.presentCount is number;
+      allow delete: if isValidId(sessionId);
+    }
+
+    // Student roster
+    match /students/{studentId} {
+      allow read: if isValidId(studentId);
+      allow create, update: if isValidId(studentId)
+        && request.resource.data.registerNumber is string
+        && request.resource.data.name is string
+        && request.resource.data.departmentId is string;
+      allow delete: if isValidId(studentId);
+    }
+
+    // Department profiles and coordinator overrides
+    match /departments/{departmentId} {
+      allow read: if isValidId(departmentId);
+      allow create, update: if isValidId(departmentId)
+        && request.resource.data.id is string
+        && request.resource.data.name is string
+        && request.resource.data.coordinatorName is string;
+      allow delete: if isValidId(departmentId);
+    }
+
+    // Institutional admin settings
+    match /admin_settings/{settingId} {
+      allow read: if isValidId(settingId);
+      allow write: if isValidId(settingId)
+        && request.resource.data.academicYear is string
+        && request.resource.data.attendanceThresholdPercent is number;
+    }
+
+    // Audit logs
+    match /audit_logs/{logId} {
+      allow read: if isValidId(logId);
+      allow create: if isValidId(logId)
+        && request.resource.data.actor is string
+        && request.resource.data.action is string;
+      allow update, delete: if false; // Append-only audit logs
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "entities": {
+    "AttendanceSession": {
+      "title": "AttendanceSession",
+      "description": "Records an institutional attendance session with recognized students, counts, and timestamp.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "sessionId": { "type": "string" },
+        "departmentId": { "type": "string" },
+        "departmentCode": { "type": "string" },
+        "departmentName": { "type": "string" },
+        "year": { "type": "string", "enum": ["I", "II", "III", "IV"] },
+        "section": { "type": "string", "maxLength": 5 },
+        "sessionDate": { "type": "string" },
+        "sessionTime": { "type": "string" },
+        "recordingDurationSeconds": { "type": "number" },
+        "status": { "type": "string", "enum": ["recording", "processing", "completed", "failed"] },
+        "totalFramesAnalyzed": { "type": "number" },
+        "totalFacesDetected": { "type": "number" },
+        "presentCount": { "type": "number" },
+        "absentCount": { "type": "number" },
+        "flaggedCount": { "type": "number" },
+        "unknownFacesCount": { "type": "number" },
+        "attendancePercentage": { "type": "number" },
+        "results": { "type": "array" },
+        "createdAt": { "type": "string" },
+        "completedAt": { "type": "string" }
+      },
+      "required": ["sessionId", "departmentId", "year", "section", "status", "presentCount", "attendancePercentage"]
+    },
+    "Student": {
+      "title": "Student",
+      "description": "Enrolled student profile with 128-dimensional biometric face descriptor for classroom recognition.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "registerNumber": { "type": "string", "maxLength": 32 },
+        "name": { "type": "string", "maxLength": 100 },
+        "departmentId": { "type": "string", "maxLength": 32 },
+        "departmentCode": { "type": "string", "maxLength": 16 },
+        "year": { "type": "string", "enum": ["I", "II", "III", "IV"] },
+        "section": { "type": "string", "maxLength": 5 },
+        "qualityScore": { "type": "number" },
+        "registeredAt": { "type": "string" }
+      },
+      "required": ["registerNumber", "name", "departmentId", "year", "section"]
+    },
+    "DepartmentConfig": {
+      "title": "DepartmentConfig",
+      "description": "Department organizational settings, coordinator details, and HOD contacts.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "code": { "type": "string" },
+        "defaultSection": { "type": "string" },
+        "coordinatorName": { "type": "string" },
+        "coordinatorEmail": { "type": "string" },
+        "coordinatorDesignation": { "type": "string" },
+        "coordinatorPhone": { "type": "string" },
+        "coordinatorCabin": { "type": "string" },
+        "accentColor": { "type": "string" },
+        "isActive": { "type": "boolean" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "code", "coordinatorName", "coordinatorEmail"]
+    },
+    "AdminSettings": {
+      "title": "AdminSettings",
+      "description": "Institution-wide attendance policies, thresholds, and academic configuration.",
+      "type": "object",
+      "properties": {
+        "academicYear": { "type": "string" },
+        "attendanceThresholdPercent": { "type": "number" },
+        "recordingDurationSeconds": { "type": "number" },
+        "allowAmbiguousFlags": { "type": "boolean" },
+        "lastUpdated": { "type": "string" },
+        "updatedBy": { "type": "string" }
+      },
+      "required": ["academicYear", "attendanceThresholdPercent", "recordingDurationSeconds"]
+    },
+    "AuditLog": {
+      "title": "AuditLog",
+      "description": "Administrative action logs and audit records.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "actor": { "type": "string" },
+        "action": { "type": "string" },
+        "details": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["actor", "action", "details", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/attendance_sessions/{sessionId}": {
+      "schema": "AttendanceSession",
+      "description": "Collection of recorded attendance sessions."
+    },
+    "/students/{studentId}": {
+      "schema": "Student",
+      "description": "Registered students roster across departments and sections."
+    },
+    "/departments/{departmentId}": {
+      "schema": "DepartmentConfig",
+      "description": "Configured department profiles and HOD information."
+    },
+    "/admin_settings/{settingId}": {
+      "schema": "AdminSettings",
+      "description": "Institutional administrative settings and policies."
+    },
+    "/audit_logs/{logId}": {
+      "schema": "AuditLog",
+      "description": "Administrative actions and attendance audit events."
+    }
+  }
+}

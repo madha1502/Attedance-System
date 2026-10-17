@@ -1,0 +1,9 @@
+{
+  "name": "College Attendance System - Department Portal",
+  "description": "V.S.B. Engineering College (An Autonomous Institution, Karur): Institutional Attendance Management System (Phase 1) - Department-Scoped Portal.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

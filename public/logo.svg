@@ -1,0 +1,187 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="goldRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="35%" stop-color="#facc15" />
+      <stop offset="80%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+
+    <linearGradient id="cogGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="50%" stop-color="#dc2626" />
+      <stop offset="100%" stop-color="#b91c1c" />
+    </linearGradient>
+
+    <filter id="sealShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.25" />
+    </filter>
+
+    <filter id="bannerShadow" x="-10%" y="-15%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Outer Golden Beaded Circle -->
+  <circle cx="250" cy="230" r="205" fill="#ffffff" stroke="#eab308" stroke-width="8" filter="url(#sealShadow)" />
+  <circle cx="250" cy="230" r="197" fill="none" stroke="#ca8a04" stroke-width="2" />
+  <circle cx="250" cy="230" r="192" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5" />
+
+  <!-- Inner border ring separating text arc -->
+  <circle cx="250" cy="230" r="140" fill="#ffffff" stroke="#dc2626" stroke-width="3" />
+
+  <!-- Circular Text Paths -->
+  <!-- Top Arc for "V.S.B. ENGINEERING COLLEGE" -->
+  <path id="topTextArc" d="M 75 230 A 175 175 0 0 1 425 230" fill="none" />
+  <text fill="#b91c1c" font-family="'Arial Black', Arial, Helvetica, sans-serif" font-size="20" font-weight="900" letter-spacing="3.5">
+    <textPath href="#topTextArc" startOffset="50%" text-anchor="middle">
+      V.S.B. ENGINEERING COLLEGE
+    </textPath>
+  </text>
+
+  <!-- Bottom Arc for "KARUR - 639 111" -->
+  <path id="bottomTextArc" d="M 415 230 A 165 165 0 0 1 85 230" fill="none" />
+  <text fill="#b91c1c" font-family="'Arial Black', Arial, Helvetica, sans-serif" font-size="16" font-weight="900" letter-spacing="4">
+    <textPath href="#bottomTextArc" startOffset="50%" text-anchor="middle">
+      KARUR - 639 111
+    </textPath>
+  </text>
+
+  <!-- Side Traditional Auspicious Kuthuvilakku / Diya Lamps (Left and Right) -->
+  <!-- Left Lamp -->
+  <g transform="translate(68, 222) scale(0.65)" fill="#dc2626">
+    <path d="M 12 0 C 14 6 18 10 18 14 C 18 18 14 20 12 20 C 10 20 6 18 6 14 C 6 10 10 6 12 0 Z" fill="#f59e0b" />
+    <path d="M 4 20 L 20 20 L 16 26 L 8 26 Z" />
+    <circle cx="12" cy="30" r="3" />
+    <path d="M 10 33 L 14 33 L 15 42 L 9 42 Z" />
+    <path d="M 5 42 L 19 42 L 21 46 L 3 46 Z" />
+  </g>
+
+  <!-- Right Lamp -->
+  <g transform="translate(416, 222) scale(0.65)" fill="#dc2626">
+    <path d="M 12 0 C 14 6 18 10 18 14 C 18 18 14 20 12 20 C 10 20 6 18 6 14 C 6 10 10 6 12 0 Z" fill="#f59e0b" />
+    <path d="M 4 20 L 20 20 L 16 26 L 8 26 Z" />
+    <circle cx="12" cy="30" r="3" />
+    <path d="M 10 33 L 14 33 L 15 42 L 9 42 Z" />
+    <path d="M 5 42 L 19 42 L 21 46 L 3 46 Z" />
+  </g>
+
+  <!-- CENTER RED COGWHEEL (16 Teeth Gear) -->
+  <g id="cogwheel">
+    <!-- Gear base circle -->
+    <circle cx="250" cy="230" r="130" fill="url(#cogGrad)" stroke="#991b1b" stroke-width="2" />
+
+    <!-- 16 Teeth around the circle -->
+    <!-- We generate 16 symmetrical gear teeth around 250, 230 -->
+    <g fill="url(#cogGrad)">
+      <!-- 0 deg (top) -->
+      <polygon points="239,94 261,94 265,108 235,108" />
+      <!-- 22.5 deg -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(22.5 250 230)" />
+      <!-- 45 deg -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(45 250 230)" />
+      <!-- 67.5 deg -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(67.5 250 230)" />
+      <!-- 90 deg (right) -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(90 250 230)" />
+      <!-- 112.5 deg -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(112.5 250 230)" />
+      <!-- 135 deg -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(135 250 230)" />
+      <!-- 157.5 deg -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(157.5 250 230)" />
+      <!-- 180 deg (bottom) -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(180 250 230)" />
+      <!-- 202.5 deg -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(202.5 250 230)" />
+      <!-- 225 deg -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(225 250 230)" />
+      <!-- 247.5 deg -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(247.5 250 230)" />
+      <!-- 270 deg (left) -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(270 250 230)" />
+      <!-- 292.5 deg -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(292.5 250 230)" />
+      <!-- 315 deg -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(315 250 230)" />
+      <!-- 337.5 deg -->
+      <polygon points="239,94 261,94 265,108 235,108" transform="rotate(337.5 250 230)" />
+    </g>
+
+    <!-- Inner Core White Circle -->
+    <circle cx="250" cy="230" r="95" fill="#ffffff" stroke="#991b1b" stroke-width="3" />
+  </g>
+
+  <!-- Triad Partition Lines (dividing into 3 sectors for Computer, Tower, Antenna) -->
+  <line x1="250" y1="230" x2="250" y2="135" stroke="#dc2626" stroke-width="3.5" />
+  <line x1="250" y1="230" x2="168" y2="277" stroke="#dc2626" stroke-width="3.5" />
+  <line x1="250" y1="230" x2="332" y2="277" stroke="#dc2626" stroke-width="3.5" />
+
+  <!-- Sector 1: Top-Left Desktop PC & Keyboard -->
+  <g transform="translate(182, 162) scale(0.9)" stroke="#b91c1c" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Monitor Outer Box -->
+    <rect x="8" y="6" width="34" height="26" rx="2" fill="#ffffff" />
+    <rect x="12" y="10" width="26" height="18" fill="#fef2f2" />
+    <!-- Stand -->
+    <line x1="25" y1="32" x2="25" y2="38" stroke-width="3" />
+    <line x1="18" y1="38" x2="32" y2="38" stroke-width="3" />
+    <!-- Keyboard -->
+    <rect x="7" y="41" width="36" height="8" rx="1.5" fill="#ffffff" />
+    <line x1="12" y1="45" x2="38" y2="45" stroke-dasharray="2,2" stroke-width="1.8" />
+  </g>
+
+  <!-- Sector 2: Top-Right High-Voltage / Telecommunication Tower -->
+  <g transform="translate(275, 155) scale(0.85)" stroke="#b91c1c" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Tower Main Legs (Apex at top, spreading down) -->
+    <line x1="28" y1="8" x2="8" y2="62" />
+    <line x1="28" y1="8" x2="48" y2="62" />
+    <line x1="28" y1="0" x2="28" y2="8" stroke-width="3" /> <!-- Spire -->
+    <!-- Cross Bracing -->
+    <line x1="23" y1="22" x2="33" y2="22" stroke-width="3" />
+    <line x1="19" y1="34" x2="37" y2="34" stroke-width="3" />
+    <line x1="14" y1="48" x2="42" y2="48" stroke-width="3" />
+    <!-- X Braces -->
+    <line x1="23" y1="22" x2="37" y2="34" stroke-width="1.5" />
+    <line x1="33" y1="22" x2="19" y2="34" stroke-width="1.5" />
+    <line x1="19" y1="34" x2="42" y2="48" stroke-width="1.5" />
+    <line x1="37" y1="34" x2="14" y2="48" stroke-width="1.5" />
+    <!-- Antenna / Transmission cross arms at top -->
+    <line x1="10" y1="16" x2="46" y2="16" stroke-width="2.5" />
+    <line x1="14" y1="26" x2="42" y2="26" stroke-width="2" />
+  </g>
+
+  <!-- Sector 3: Bottom Microwave Satellite Dish Antenna -->
+  <g transform="translate(222, 238) scale(0.9)" stroke="#b91c1c" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Dish Parabolic Arc -->
+    <path d="M 12 38 C 16 16 48 16 52 38" stroke-width="3.5" fill="#fef2f2" />
+    <!-- Central Feed Horn Rod -->
+    <line x1="32" y1="24" x2="32" y2="10" stroke-width="2.5" />
+    <circle cx="32" cy="9" r="3.5" fill="#b91c1c" />
+    <!-- Base Mount and Tripod -->
+    <line x1="32" y1="35" x2="32" y2="52" stroke-width="3.5" />
+    <line x1="18" y1="52" x2="46" y2="52" stroke-width="3.5" />
+    <line x1="24" y1="44" x2="18" y2="52" stroke-width="2" />
+    <line x1="40" y1="44" x2="46" y2="52" stroke-width="2" />
+  </g>
+
+  <!-- BOTTOM GOLDEN RIBBON BANNER -->
+  <g filter="url(#bannerShadow)">
+    <!-- Ribbon Left Tail with Swallowtail cutout -->
+    <polygon points="35,420 85,385 85,430 35,450 52,435" fill="#ca8a04" stroke="#a16207" stroke-width="1.5" />
+    <!-- Ribbon Right Tail with Swallowtail cutout -->
+    <polygon points="465,420 415,385 415,430 465,450 448,435" fill="#ca8a04" stroke="#a16207" stroke-width="1.5" />
+
+    <!-- Main Banner Body -->
+    <path d="M 65 410 Q 250 375 435 410 L 430 445 Q 250 410 70 445 Z"
+          fill="url(#goldRibbon)" stroke="#a16207" stroke-width="2.5" />
+
+    <!-- Ribbon text on curved path -->
+    <path id="ribbonPath" d="M 70 435 Q 250 400 430 435" fill="none" />
+    <text fill="#b91c1c" font-family="'Arial Black', Arial, Helvetica, sans-serif" font-size="13" font-weight="900" letter-spacing="2">
+      <textPath href="#ribbonPath" startOffset="50%" text-anchor="middle">
+        ★ HARDWORK IS THE KEY TO SUCCESS ★
+      </textPath>
+    </text>
+  </g>
+</svg>
